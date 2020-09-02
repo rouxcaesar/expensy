@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func addCommand(args []string) {
+func AddCommand(args []string) {
 	fmt.Println(args)
 	fmt.Println(len(args))
 }

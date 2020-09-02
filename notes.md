@@ -1,0 +1,5 @@
+# Notes
+
+## Go Project Structure
+
+
