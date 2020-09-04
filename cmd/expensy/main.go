@@ -14,6 +14,19 @@ import (
 func main() {
 	// First check whether a database file exists.
 	// If it does not, then create one.
+	_, err := os.Stat("../../internal/db/expenses.db")
+	if os.IsNotExist(err) {
+		_, err := os.Create("../../internal/db/expenses.db")
+		if err != nil {
+			fmt.Println(err)
+			log.Fatal(err)
+		}
+	}
+
+	//if info.IsDir() {
+	//	fmt.Println(err)
+	//	log.Fatal(err)
+	//}
 
 	// Open database file and create table if one doesn't exist yet.
 	db, _ := sql.Open("sqlite3", "../../internal/db/expenses.db")
@@ -25,9 +38,12 @@ func main() {
 
 	statement.Exec()
 
-	fmt.Println("Hello!")
+	// Validate command.
+	if len(os.Args) < 2 {
+		log.Fatalln("Command needed to run program.")
+	}
 
-	// Handle command
+	// Handle command.
 	cmd := os.Args[1]
 	args := os.Args[2:]
 
