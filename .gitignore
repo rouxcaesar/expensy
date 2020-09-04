@@ -1,5 +1,8 @@
 # Ignore database files
 *.db
 
+# Ignore any swp files that are accidentally added
+*.swp
+
 # Ignore binary files
 /bin
